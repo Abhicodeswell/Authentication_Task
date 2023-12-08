@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000'; // Update with your backend API URL
+const apiUrl = 'https://authenticationtask-production.up.railway.app/'; // Update with your backend API URL
 
     function showRegistrationForm() {
       document.getElementById('registrationForm').style.display = 'block';
