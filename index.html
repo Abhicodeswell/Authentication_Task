@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authentication App</title>
+  <link rel="stylesheet" href="style.css">
+  
+  
+</head>
+<body>
+    <div>
+        <h1>User Authentication App</h1>
+    
+        <!-- User Registration Form -->
+        <div id="registrationForm" style="display: block;">
+          <form>
+            <h2>User Registration</h2>
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" required>
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" required>
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" required>
+            <button onclick="registerUser()">Register</button>
+            <p id="regMessage"></p>
+            <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+            <p>Forgot your password? <a href="#" onclick="showForgotPasswordForm()">Reset Password</a></p>
+          </form>
+        </div>
+    
+        <!-- User Login Form -->
+        <div id="loginForm" style="display: none;">
+          <form>
+            <h2>User Login</h2>
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required>
+            <button onclick="loginUser()">Login</button>
+            <p id="loginMessage"></p>
+            <p>Don't have an account? <a href="#" onclick="showRegistrationForm()">Register</a></p>
+            <p>Forgot your password? <a href="#" onclick="showForgotPasswordForm()">Reset Password</a></p>
+          </form>
+        </div>
+    
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordForm" style="display: none;">
+          <form>
+            <h2>Forgot Password</h2>
+            <label for="forgotEmail">Email:</label>
+            <input type="email" id="forgotEmail" required>
+            <button onclick="forgotPassword()">Reset Password</button>
+            <p id="forgotMessage"></p>
+            <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+            <p>Don't have an account? <a href="#" onclick="showRegistrationForm()">Register</a></p>
+          </form>
+        </div>
+      </div>
+
+      <script src="script.js"></script>
+  
+</body>
+</html>
