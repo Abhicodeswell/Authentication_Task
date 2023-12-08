@@ -82,8 +82,33 @@ const forgot= asynchandler(async (req,res)=>{
     // Updating the password in user's database
     user.password = await bcrypt.hash(tempPwd,10);
     await user.save();
+    // Send the temporary password to the user's email
+     const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user:'abhinavsingh021094@gmail.com',
 
-    res.json({password:tempPwd});
+          pass: 'cdww epzl fryb izyu',
+        },
+      });
+      const mailOptions = {
+        from: 'abhinavsingh021094@gmail.com',
+        to: user.email,
+        subject: 'Password Recovery',
+        text: `Your new password is: ${tempPwd}`,
+      };
+  
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+          return res.status(500).json({ error: 'Failed to send email' });
+        }
+        res.json({ message: 'Password recovery email sent successfully' });
+      });
+
+
+
+    // res.json({password:tempPwd});
 })
 
 module.exports = {register,login,forgot};
