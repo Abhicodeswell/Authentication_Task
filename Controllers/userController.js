@@ -2,6 +2,7 @@ const asynchandler = require('express-async-handler');
 const bcrypt = require('bcrypt');
 const User = require('../Models/UserSchema');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 
 
 
@@ -88,7 +89,7 @@ const forgot= asynchandler(async (req,res)=>{
         auth: {
           user:'abhinavsingh021094@gmail.com',
 
-          pass: 'cdww epzl fryb izyu',
+          pass: 'bziw dvzl ixzh exhk',
         },
       });
       const mailOptions = {

@@ -1,7 +1,7 @@
 // db.js
 const mongoose = require('mongoose');
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/LoginUser';
+const MONGO_URI = 'mongodb+srv://abhinavsingh9391:HELLOBUDDY@cluster11.77royft.mongodb.net/?retryWrites=true&w=majority';0
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,

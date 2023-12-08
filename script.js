@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:5000'; // Update with your backend API URL
+const apiUrl = 'http://localhost:3000'; // Update with your backend API URL
 
     function showRegistrationForm() {
       document.getElementById('registrationForm').style.display = 'block';
@@ -34,9 +34,12 @@ const apiUrl = 'http://localhost:5000'; // Update with your backend API URL
       const data = await response.json();
       document.getElementById('regMessage').innerText = data.message;
 
-      if (response.ok) {
-        showLoginForm();
-      }
+      
+
+      // if (response.ok) {
+        
+      //   showLoginForm();
+      // }
     }
 
     async function loginUser() {
@@ -67,5 +70,5 @@ const apiUrl = 'http://localhost:5000'; // Update with your backend API URL
       });
 
       const data = await response.json();
-      document.getElementById('forgotMessage').innerText = data.error || `New password: ${data.password}`;
+      document.getElementById('forgotMessage').innerText = data.error || `${data.message}`;
     }
