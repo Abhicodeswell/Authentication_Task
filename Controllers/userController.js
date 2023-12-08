@@ -20,10 +20,15 @@ const register = asynchandler(async (req,res)=>{
         res.status(400).json({message:"All fields are mandatory!"});
     }
 
-    // If user already exists
-    const existingUser = await User.findOne({$or:[{username},{email}]});
-    if(existingUser){
-        res.status(400).json({message:"User Already Exists"});
+   // Checking for Existing User
+    const existingUsername = await User.findOne({ username: { $regex: new RegExp(username, 'i') } });
+    if (existingUsername) {
+        return res.status(400).json({ message: "Username already exists" });
+    }
+
+    const existingEmail = await User.findOne({ email: { $regex: new RegExp(email, 'i') } });
+    if (existingEmail) {
+        return res.status(400).json({ message: "Email already registered" });
     }
 
     // Hashing the password for security
